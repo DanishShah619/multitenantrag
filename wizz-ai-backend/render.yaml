@@ -1,0 +1,41 @@
+# Render Blueprint - lets Render provision this service automatically from
+# render.yaml instead of manual dashboard clicks. Optional: you can also
+# just configure everything through the dashboard UI directly (see README
+# deployment section). Keeping this file means the deployment config is
+# version-controlled alongside the code, not just clicked-through once and
+# forgotten.
+#
+# Secrets (DATABASE_URL, MILVUS_TOKEN, GROQ_API_KEY, etc.) are NOT set here
+# - Render Blueprints deliberately don't store secret values in the repo.
+# Set them in the Render dashboard under the service's Environment tab
+# after the first deploy from this blueprint.
+
+services:
+  - type: web
+    name: wizz-ai-backend
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: EMBEDDING_PROVIDER
+        value: local
+      - key: LLM_PROVIDER
+        value: groq
+      - key: GROQ_MODEL
+        value: llama-3.1-8b-instant
+      - key: RETRIEVAL_MODE
+        value: hybrid
+      - key: DOCUMENT_PARSER
+        value: basic
+      - key: CHUNKING_STRATEGY
+        value: auto
+      - key: CHUNK_SIZE
+        value: "400"
+      - key: CHUNK_OVERLAP
+        value: "60"
+      - key: MILVUS_COLLECTION
+        value: wizz_chunks_prod
+      # Secrets - set these manually in the Render dashboard, not here:
+      # DATABASE_URL, SUPABASE_URL, SUPABASE_SERVICE_KEY,
+      # MILVUS_URI, MILVUS_TOKEN, GROQ_API_KEY

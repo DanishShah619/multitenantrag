@@ -1,0 +1,68 @@
+[
+  {
+    "id": "q1",
+    "type": "answerable",
+    "query": "there's water collecting on the road near my house, who do I contact?",
+    "expected_keywords": ["waterlogging", "drainage"]
+  },
+  {
+    "id": "q2",
+    "type": "answerable",
+    "query": "how do I report a pothole?",
+    "expected_keywords": ["pothole", "road damage"]
+  },
+  {
+    "id": "q3",
+    "type": "answerable",
+    "query": "a streetlight near my house isn't working, how do I get it fixed?",
+    "expected_keywords": ["streetlight", "street lighting"]
+  },
+  {
+    "id": "q4",
+    "type": "answerable",
+    "query": "there's a large pile of trash that's been sitting on my street for days",
+    "expected_keywords": ["garbage", "sanitation"]
+  },
+  {
+    "id": "q5",
+    "type": "answerable",
+    "query": "a tree fell down and is blocking the main road",
+    "expected_keywords": ["fallen tree", "obstruction"]
+  },
+  {
+    "id": "q6",
+    "type": "answerable",
+    "query": "how long does it usually take for a complaint to be resolved?",
+    "expected_keywords": ["business days", "resolved"]
+  },
+  {
+    "id": "q7",
+    "type": "answerable",
+    "query": "my complaint has been open for weeks with no update, what can I do?",
+    "expected_keywords": ["escalate", "senior"]
+  },
+  {
+    "id": "q8",
+    "type": "answerable",
+    "query": "how can I check what's happening with a complaint I already submitted?",
+    "expected_keywords": ["my complaints", "status"]
+  },
+  {
+    "id": "q9",
+    "type": "unanswerable",
+    "query": "what's the weather going to be like this weekend?",
+    "expected_keywords": []
+  },
+  {
+    "id": "q10",
+    "type": "unanswerable",
+    "query": "can you recommend a good restaurant nearby?",
+    "expected_keywords": []
+  },
+  {
+    "id": "q11",
+    "type": "unanswerable",
+    "query": "what is the capital of France?",
+    "expected_keywords": []
+  }
+]
