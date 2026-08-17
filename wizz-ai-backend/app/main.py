@@ -31,7 +31,11 @@ def health():
     return {"status": "ok"}
 
 
-# NOTE on CORS: allow_origins=["*"] is fine for the admin API during dev,
-# but the widget's chat endpoint (Phase 2) should validate the Origin header
-# against each tenant's registered domain(s), not rely on CORS alone -
-# CORS is a browser-side protection, not a server-side one.
+from pathlib import Path
+from fastapi.staticfiles import StaticFiles
+
+# Mount frontend web app
+frontend_dir = Path(__file__).resolve().parent.parent / "frontend"
+if frontend_dir.exists():
+    app.mount("/", StaticFiles(directory=str(frontend_dir), html=True), name="frontend")
+
